@@ -8,55 +8,165 @@
 </head>
 <body>
   <script >
-     let question1 = 'world wide web' //What does “www” stand for in a website browser?
-      let question2 = '50 meters'      //How long is an Olympic swimming pool (in meters)?
-      let question3 = 'octagon'        //What geometric shape is generally used for stop signs?
-      let question4 = 'Samsung'               //What is the name of the biggest technology company in South Korea?
-      let correct = 0
+    //  let question1 = 'world wide web' //What does “www” stand for in a website browser?
+    //   let question2 = '50 meters'      //How long is an Olympic swimming pool (in meters)?
+    //   let question3 = 'octagon'        //What geometric shape is generally used for stop signs?
+    //   let question4 = 'Samsung'               //What is the name of the biggest technology company in South Korea?
+    //   let correct = 0
 
-      let triviaQuestion = prompt('What does “www” stand for in a website browser?')
-      if (question1 === triviaQuestion) {
-        alert('Correct')
-        correct++
-      }
-      else {
-        alert('Incorrect')
-      }
+    //   let triviaQuestion = prompt('What does “www” stand for in a website browser?')
+    //   if (question1 === triviaQuestion) {
+    //     alert('Correct')
+    //     correct++
+    //   }
+    //   else {
+    //     alert('Incorrect')
+    //   }
 
-      triviaQuestion = prompt('How long is an Olympic swimming pool (in meters)?')
-      if (question2 === triviaQuestion) {
-        alert('Correct')
-        correct++
-      }
-      else{
-        alert('Incorrect')
-      }
+    //   triviaQuestion = prompt('How long is an Olympic swimming pool (in meters)?')
+    //   if (question2 === triviaQuestion) {
+    //     alert('Correct')
+    //     correct++
+    //   }
+    //   else{
+    //     alert('Incorrect')
+    //   }
 
-      triviaQuestion = prompt('What geometric shape is generally used for stop signs?')
-      if (question3 === triviaQuestion) {
-        alert('Correct')
-        correct++
-      }
-      else {
-        alert('Incorrect')
-      }
+    //   triviaQuestion = prompt('What geometric shape is generally used for stop signs?')
+    //   if (question3 === triviaQuestion) {
+    //     alert('Correct')
+    //     correct++
+    //   }
+    //   else {
+    //     alert('Incorrect')
+    //   }
 
-      triviaQuestion = prompt('What is the name of the biggest technology company in South Korea?')
-      if (question4 === triviaQuestion) {
-        alert('Correct')
-        correct++
-      }
-      else {
-        alert('Incorrect')
-      }
+    //   triviaQuestion = prompt('What is the name of the biggest technology company in South Korea?')
+    //   if (question4 === triviaQuestion) {
+    //     alert('Correct')
+    //     correct++
+    //   }
+    //   else {
+    //     alert('Incorrect')
+    //   }
 
-      if (correct === 4) {
-        alert('Congrats, you got all the questions correct')
+    //   if (correct === 4) {
+    //     alert('Congrats, you got all the questions correct')
+
+    //   }
+    //   else {
+    //     alert(`You got a total of ${correct} questions correct.`)
+    //   }
+
+      // for (let i = 38; i < 70; i++){
+      //   console.log(Math.floor(Math.random() * 100))
+      // }
+
+    //   let randomNumber = Math.floor(Math.random() *10) +1
+    //   let correct = 0;
+    //   let again = true
+    //   for( j = 0; j<1;j++){
+    //   for ( let i = 0; i < 10; i++){
+    //     console.log(randomNumber)
+    //     if(parseInt(randomNumber) == prompt('Guess my number from 1-10')){
+    //       alert('Correct')
+    //       correct++
+    //     }
+    //     randomNumber = Math.floor(Math.random() * 10) + 1
+    //   }
+
+    //   alert(`You got a total of ${correct} guesses correct!`)
+    //   again= prompt('Would you like to play again? 0 for no, 1 for yes')
+    //   j= j - again
+    // }
+
+    let computer =['r','p','s']
+    let playerScore =0
+    let computerScore = 0
+    let ties = 0
+    
+
+    for(let i =0; i<10;i++)
+    {
+      let computerChoice = computer[Math.floor(Math.random() * computer.length)]
+      console.log(computerChoice)
+      let player = prompt('Enter "r" for rock, "p" for paper or "s" for scissors')
+      if(computerChoice==='r'){
+        if(player==='r'){
+          alert(`The computer chose ${computerChoice}. Its a tie`)
+          ties++
+        }
+        else if(player ==='p'){
+          alert(`The computer chose ${computerChoice}. You won this round`)
+          playerScore++
+        }
+        else if(player==='s'){
+          alert(`The computer chose ${computerChoice}. You lost this round`)
+          computerScore++
+        }
+        else{
+          alert('Invalid entry')
+          i--
+        }
 
       }
-      else {
-        alert(`You got a total of ${correct} questions correct.`)
+      else if(computerChoice==='p'){
+         if (player === 'r') {
+          alert(`The computer chose ${computerChoice}. You lost this round`)
+          computerScore++
+        }
+        else if (player === 'p') {
+          alert(`The computer chose ${computerChoice}. Its a tie`)
+          ties++
+        }
+        else if (player === 's') {
+          alert(`The computer chose ${computerChoice}. You won this round`)
+          playerScore++
+        }
+        else {
+           alert('Invalid entry')
+           i--
+         }
+
       }
+      else if (computerChoice === 's') {
+         if (player === 'r') {
+          alert(`The computer chose ${computerChoice}. You won this round`)
+          playerScore++
+        }
+        else if (player === 'p') {
+          alert(`The computer chose ${computerChoice}. You lost this round`)
+          computerScore++
+        }
+        else if (player === 's') {
+          alert(`The computer chose ${computerChoice}. Its a tie`)
+          ties++
+        }
+        else {
+           alert('Invalid entry')
+           i--
+         }
+
+      }
+    }
+
+    alert(`   Final Score
+          You: ${playerScore}
+          Computer: ${computerScore}
+          ties: ${ties}`)
+          if(playerScore>computerScore)
+          {
+            alert('You won')
+          }
+          else if(playerScore<computerScore)
+          {
+            alert('You lose')
+          }
+          else{
+            alert('Its a grand tie')
+          }
+
+
   </script>
 </body>
 </html>
